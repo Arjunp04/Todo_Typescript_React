@@ -1,7 +1,7 @@
 import { FaCheckCircle, FaClock, FaEdit, FaTrash } from "react-icons/fa";
 import { Todo, TodoContext, TodoContextType } from "../context/TodoContext";
 import { useContext, useState } from "react";
-import UpdateTodoModal from "./updateTodo";
+import UpdateTodoModal from "./UpdateTodo";
 
 interface TodoItemProps {
   todo: Todo;
