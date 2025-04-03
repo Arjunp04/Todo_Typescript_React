@@ -25,7 +25,6 @@ const UpdateTodoModal: React.FC<UpdateTodoModalProps> = ({ todoId }) => {
       const response = await axios.get(
         `http://localhost:5000/api/v1/todos/${todoId}`
       );
-      console.log(response);
       setSingleTodo(response.data.data);
     } catch (error) {
       console.error("Error fetching todo:", error);

@@ -40,7 +40,6 @@ const TodoProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const fetchTodos = async (): Promise<void> => {
     try {
       const response = await axios.get(`${BASE_URL}/api/v1/todos`);
-      console.log(response);
       setTodos(response.data.data);
     } catch (error) {
       console.error("Error fetching todos:", error);
@@ -51,13 +50,11 @@ const TodoProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const addTodo = async (todo: Todo) => {
     try {
       setLoading(true);
-      console.log("todo data :", todo);
       const response = await axios.post(`${BASE_URL}/api/v1/todos/create`, todo, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-      console.log(response);
       setTodos((prev) => [...prev, response.data.data]);
       fetchTodos();
     } catch (error) {
@@ -87,7 +84,6 @@ const TodoProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const deleteTodo = async (id: string) => {
     try {
-      console.log(id);
       setLoading(true);
       await axios.delete(`${BASE_URL}/api/v1/todos/${id}`);
       setTodos((prev) => prev.filter((todo) => todo._id !== id));

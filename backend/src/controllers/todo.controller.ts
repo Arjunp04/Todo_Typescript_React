@@ -38,7 +38,7 @@ export const createTodo = async (
       data: newTodo,
     });
   } catch (error) {
-    console.log("Error creating todo:", error);
+    console.error("Error creating todo:", error);
     next(error); // Pass error to error handler middleware
   }
 };
@@ -57,7 +57,7 @@ export const fetchAllTodos = async (
       data: allTodos,
     });
   } catch (error) {
-    console.log("Error fetching todos:", error);
+    console.error("Error fetching todos:", error);
     next(error); // Pass error to error handler middleware
   }
 };
@@ -120,7 +120,7 @@ export const updateTodo = async (
       data: updatedTodo,
     });
   } catch (error) {
-    console.log("Error updating todos:", error);
+    console.error("Error updating todos:", error);
     next(error); // Pass error to error handler middleware
   }
 };
